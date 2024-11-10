@@ -20,4 +20,4 @@ RUN gulp
 EXPOSE 80
 
 # Command to open the app (using a lightweight server to serve the HTML)
-CMD ["npx", "http-server", "."]
+CMD ["npx", "http-server", ".", "-a", "0.0.0.0", "-p", "8080"]
