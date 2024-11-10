@@ -16,11 +16,11 @@ RUN npm run gulp
 # Step 2: Use Nginx to serve the built static files
 FROM nginx:alpine
 
-# Copy the built project from the builder stage
+# Copy the built project from the builder stage to Nginx's default directory
 COPY --from=builder /app /usr/share/nginx/html
 
-# Expose port 80
+# Expose port 80 (HTTP)
 EXPOSE 80
 
-# Start Nginx
+# Use Nginx's default config, which binds to 0.0.0.0 by default (accessible externally)
 CMD ["nginx", "-g", "daemon off;"]
